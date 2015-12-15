@@ -597,6 +597,11 @@ class PHP_CodeSniffer
         $todo     = $this->getFilesToProcess($files, $local);
         $numFiles = count($todo);
 
+        if ($numFiles == 0) {
+            echo "No File to process, aborting".PHP_EOL;
+            exit(1);
+        }
+
         if (PHP_CODESNIFFER_VERBOSITY > 0) {
             echo "DONE ($numFiles files in queue)".PHP_EOL;
         }
